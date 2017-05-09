@@ -1,9 +1,15 @@
 {
   "name": "mercadolibre",
   "version": "0.0.13",
-  "author": "Santiago Nahuel Cordoba <santi8ago8@gmail.com>",
+  "author": "Frederico Marques <frederico.marques.22@gmail.com>",
   "description": "Mercadolibre SDK module for integration",
-  "main": "./index.js",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "node dist/lib/index.js",
+    "dev": "babel-node src/index.js",
+    "babel": "babel-node ",
+    "test": "`npm bin`/ava --verbose"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/santi8ago8/MercadoLibreNode.git"
@@ -18,8 +24,60 @@
   "dependencies": {
     "needle": "^0.11.0"
   },
-  "engine": {
-    "node": ">=0.6"
+  "eslintConfig": {
+    "extends": "calamar"
   },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-eslint": "^7.1.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-es2015-parameters": "^6.23.0",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-eslatest-node6": "^1.0.1",
+    "eslint": "^3.9.1",
+    "eslint-config-calamar": "^2.1.1",
+    "eslint-plugin-babel": "^3.3.0"
+  },
+  "ava": {
+    "require": [
+      "babel-core/register"
+    ],
+    "babel": {
+      "babelrc": true,
+      "plugins": [
+        "transform-es2015-destructuring",
+        "transform-es2015-parameters",
+        [
+          "transform-object-rest-spread",
+          {
+            "useBuiltIns": true
+          }
+        ],
+        "transform-export-extensions"
+      ],
+      "presets": [
+        "eslatest-node6"
+      ]
+    }
+  },
+  "babel": {
+    "presets": [
+      "eslatest-node6"
+    ],
+    "plugins": [
+      "transform-es2015-destructuring",
+      "transform-es2015-parameters",
+      [
+        "transform-object-rest-spread",
+        {
+          "useBuiltIns": true
+        }
+      ],
+      "transform-export-extensions"
+    ]
+  }, 
   "license": "MIT"
 }
