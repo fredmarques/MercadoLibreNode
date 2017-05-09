@@ -1,1 +1,2 @@
-export Meli from './meli';
+import Meli from './meli';
+export default Meli;

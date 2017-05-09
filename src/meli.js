@@ -12,7 +12,7 @@ import querystring from 'querystring';
  * @param {string} [accessToken]
  * @param {string} [refreshToken]
  */
-class Meli {
+export default class Meli {
 
     constructor(clientId, clientSecret, accessToken, refreshToken) {
         this.clientId = clientId;
@@ -21,14 +21,11 @@ class Meli {
         this.refreshToken = refreshToken;
     }
 
-
     /**
-     *
-     * get the auth url.
+     * Get the auth url.
      *
      * @param {string} redirectUri
      * @returns {string}
-     *
      */
     getAuthURL(redirectUri) {
         const query = {
@@ -40,13 +37,11 @@ class Meli {
     }
 
     /**
-     *
      * Exchange the code for a token
      *
      * @param {string} code
      * @param {string} redirectUri
      * @param {function} callback function(error,response)
-     *
      */
     authorize(code, redirectUri, callback) {
         const self = this;
@@ -103,9 +98,9 @@ class Meli {
         const cb = callback || params;
         const query = (typeof(params) === 'object') ?
             querystring.stringify(params) :
-            ({});
+            querystring.stringify({});
 
-
+        console.log('query: ', query);
         const nextPath = config.api_root_url + (path.charAt(0) === '/' ? '' : '/') + path + query;
         needle.get(nextPath, {
         }, (err, res) => {
@@ -211,8 +206,4 @@ class Meli {
             cb(err, res ? res.body : res);
         });
     }
-
-
 }
-
-export default Meli;
