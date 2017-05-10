@@ -1,6 +1,8 @@
 MercadoLibreNode
 ================
 
+> This module is under changes and should not be used!
+
 MercadoLibreNode SDK for Node.js
 
 ### Install  
