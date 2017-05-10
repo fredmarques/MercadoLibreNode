@@ -1,6 +1,6 @@
 {
   "name": "mercadolibre-node-sdk",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Frederico Marques <frederico.marques.22@gmail.com>",
   "description": "Mercadolibre SDK based on package mercadolibre. New features and modem syntax are introduced here",
   "main": "./src/index.js",
