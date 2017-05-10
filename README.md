@@ -1,20 +1,19 @@
-MercadoLibreNode
+mercadolibre-node-sdk
 ================
 
 > This module is under changes and should not be used!
+> Based on mercadolibre package at https://www.npmjs.com/package/mercadolibre
 
-MercadoLibreNode SDK for Node.js
+MercadoLibre SDK for Node.js
 
 ### Install  
-`npm install mercadolibre`
-### Use
-#### require:
+`npm install mercadolibre-node-sdk`
 ```
-var meli = require('mercadolibre');
+import Meli from 'mercadolibre-node-sdk';
 ```
 #### Constructor:
 ```
-var meliObject = new meli.Meli(client_id, client_secret, [access_token], [refresh_token]);
+const meliObject = new Meli(client_id, client_secret, [access_token], [refresh_token]);
 ```
 |Field|Type|Required|Description|
 |-----|----|--------|-----------|
