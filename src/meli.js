@@ -100,7 +100,6 @@ export default class Meli {
             querystring.stringify(params) :
             querystring.stringify({});
 
-        console.log('query: ', query);
         const nextPath = config.api_root_url + (path.charAt(0) === '/' ? '' : '/') + path + query;
         needle.get(nextPath, {
         }, (err, res) => {
