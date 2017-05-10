@@ -2,24 +2,38 @@
   "name": "mercadolibre",
   "version": "0.0.13",
   "author": "Frederico Marques <frederico.marques.22@gmail.com>",
-  "description": "Mercadolibre SDK module for integration",
+  "description": "Mercadolibre SDK module",
   "main": "./src/index.js",
   "scripts": {
     "start": "node dist/lib/index.js",
     "dev": "babel-node src/index.js",
     "babel": "babel-node ",
-    "test": "`npm bin`/ava --verbose"
+    "test": "`npm bin`/ava --verbose",
+    "build": "babel -d dist/lib/src -D src",
+    "build:npm": "babel -d dist/npm/src -D src",
+    "prepublish:npm": "npm run clean:npm && npm run build:npm",
+    "postbuild:npm": "cp *.md *.json dist/npm/.",
+    "publish:npm": "npm publish dist/npm",
+    "clean:npm": "rm -rf dist/npm",
+    "ppp": "npm version patch && npm run publish:npm",
+    "mpp": "npm version minor && npm run publish:npm",
+    "Mpp": "npm version major && npm run publish:npm"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/santi8ago8/MercadoLibreNode.git"
+    "url": "https://github.com/fredmarques/MercadoLibreNode"
+  },
+  "homepage":"https://github.com/fredmarques/MercadoLibreNode/blob/master/README.md",
+  "bugs": {
+    "url": "https://github.com/fredmarques/MercadoLibreNode/issues"
   },
   "keywords": [
     "api",
     "mercadolibre",
     "meli",
     "sdk",
-    "integration"
+    "integration",
+    "nodejs"
   ],
   "dependencies": {
     "needle": "^0.11.0"
