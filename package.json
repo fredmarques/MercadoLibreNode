@@ -1,6 +1,6 @@
 {
   "name": "mercadolibre-node-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Frederico Marques <frederico.marques.22@gmail.com>",
   "description": "Mercadolibre SDK based on package mercadolibre. New features and modem syntax are introduced here",
   "main": "./src/index.js",
@@ -23,7 +23,7 @@
     "type": "git",
     "url": "https://github.com/fredmarques/MercadoLibreNode"
   },
-  "homepage":"https://github.com/fredmarques/MercadoLibreNode/blob/master/README.md",
+  "homepage": "https://github.com/fredmarques/MercadoLibreNode/blob/master/README.md",
   "bugs": {
     "url": "https://github.com/fredmarques/MercadoLibreNode/issues"
   },
@@ -92,6 +92,6 @@
       ],
       "transform-export-extensions"
     ]
-  }, 
+  },
   "license": "MIT"
 }
