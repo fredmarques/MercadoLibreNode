@@ -33,7 +33,7 @@ export default class Meli {
             client_id: this.clientId,
             redirect_uri: redirectUri
         };
-        return `${config.auth_url}${querystring.stringify(query)}`;
+        return `${config.auth_url}?${querystring.stringify(query)}`;
     }
 
     /**
@@ -44,19 +44,17 @@ export default class Meli {
      * @param {function} callback function(error,response)
      */
     authorize(code, redirectUri, callback) {
-        const self = this;
         needle.post(config.oauth_url, {
             grant_type: 'authorization_code',
-            client_id: self.client_id,
-            client_secret: self.client_secret,
+            client_id: this.clientId,
+            client_secret: this.clientSecret,
             code,
             redirect_uri: redirectUri
         }, {
         }, (err, res, body) => {
             if (body) {
-                self.access_token = body.access_token;
-                self.refresh_token = body.refresh_token;
-                self.redirect_uri = redirectUri;
+                this.accessToken = body.access_token;
+                this.refreshToken = body.refresh_token;
             }
             callback(err, body);
         });
@@ -79,8 +77,8 @@ export default class Meli {
         }, {
         }, (err, res, body) => {
             if (body) {
-                self.refresh_token = body.refresh_token;
-                self.access_token = body.access_token;
+                self.refreshToken = body.refresh_token;
+                self.accessToken = body.access_token;
             }
             callback(err, body);
         });
