@@ -27,7 +27,7 @@ export default class Meli {
      * @param {string} [refreshToken]
      * @param {object} [config]
      */
-    constructor(clientId, clientSecret, accessToken, refreshToken, config) {
+    constructor(clientId, clientSecret, accessToken, refreshToken, config = {}) {
         this.clientId = clientId;
         this.clientSecret = clientSecret;
         this.accessToken = accessToken;
@@ -50,7 +50,7 @@ export default class Meli {
             client_id: self.clientId,
             redirect_uri: redirectUri
         };
-        return `${authUrl}?${querystring.stringify(query)}`;
+        return `${self.authUrl}?${querystring.stringify(query)}`;
     }
 
     /**
@@ -62,7 +62,7 @@ export default class Meli {
      */
     authorize(code, redirectUri, callback) {
         const self = this;
-        needle.post(oauthUrl, {
+        needle.post(self.oauthUrl, {
             grant_type: 'authorization_code',
             client_id: self.clientId,
             client_secret: self.clientSecret,
@@ -87,7 +87,7 @@ export default class Meli {
      */
     refreshAccessToken(callback) {
         const self = this;
-        needle.post(oauthUrl, {
+        needle.post(self.oauthUrl, {
             grant_type: 'refresh_token',
             client_id: self.clientId,
             client_secret: self.clientSecret,
@@ -116,7 +116,7 @@ export default class Meli {
             querystring.stringify(params) :
             querystring.stringify({});
 
-        const nextPath = apiRootUrl + (path.charAt(0) === '/' ? '' : '/') + path + query;
+        const nextPath = this.apiRootUrl + (path.charAt(0) === '/' ? '' : '/') + path + query;
         needle.get(nextPath, {
         }, (err, res) => {
             cb(err, res ? res.body : res);
@@ -138,7 +138,7 @@ export default class Meli {
             querystring.stringify(params) :
             querystring.stringify({});
 
-        const nextPath = apiRootUrl + (path.charAt(0) === '/' ? '' : '/') + path + query;
+        const nextPath = this.apiRootUrl + (path.charAt(0) === '/' ? '' : '/') + path + query;
         needle.post(nextPath, body, {
             json: true,
             headers: {
@@ -164,7 +164,7 @@ export default class Meli {
             querystring.stringify(params) :
             querystring.stringify({});
 
-        const nextPath = apiRootUrl + (path.charAt(0) === '/' ? '' : '/') + path + query;
+        const nextPath = this.apiRootUrl + (path.charAt(0) === '/' ? '' : '/') + path + query;
         needle.post(nextPath, body, {
             multipart: true
         }, (err, res) => {
@@ -187,7 +187,7 @@ export default class Meli {
             querystring.stringify(params) :
             querystring.stringify({});
 
-        const nextPath = apiRootUrl + (path.charAt(0) === '/' ? '' : '/') + path + query;
+        const nextPath = this.apiRootUrl + (path.charAt(0) === '/' ? '' : '/') + path + query;
         needle.put(nextPath, body, {
             json: true,
             headers: {
@@ -212,7 +212,7 @@ export default class Meli {
             querystring.stringify(params) :
             querystring.stringify({});
 
-        const nextPath = apiRootUrl + (path.charAt(0) === '/' ? '' : '/') + path + query;
+        const nextPath = this.apiRootUrl + (path.charAt(0) === '/' ? '' : '/') + path + query;
         needle.delete(nextPath, {
             headers: {
                 'Content-Type': 'application/json'
