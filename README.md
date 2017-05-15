@@ -8,6 +8,8 @@ MercadoLibre SDK for Node.js
 
 ### Install  
 `npm install mercadolibre-node-sdk`
+
+### Using
 ```
 import Meli from 'mercadolibre-node-sdk';
 ```
