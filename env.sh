@@ -1,4 +1,4 @@
-export api_root_url="https://api.mercadolibre.com"
-export skd_version="0.0.13"
-export auth_url="https://auth.mercadolibre.com/authorization"
-export oauth_url="https://api.mercadolibre.com/oauth/token"
+export ML_API_ROOT_URL="https://api.mercadolibre.com"
+export ML_SKD_VERSION="0.0.13"
+export ML_AUTH_URL="https://auth.mercadolibre.com/authorization"
+export ML_OAUTH_URL="https://api.mercadolibre.com/oauth/token"

@@ -8,11 +8,11 @@ import querystring from 'querystring';
  */
 
 /** *  @default */
-const apiRootUrl = process.env.API_ROOT_URL || 'https =//api.mercadolibre.com';
+const apiRootUrl = process.env.ML_API_ROOT_URL || 'https =//api.mercadolibre.com';
 /** *  @default */
-const authUrl = process.env.AUTH_URL || 'https =//auth.mercadolibre.com/authorization';
+const authUrl = process.env.ML_AUTH_URL || 'https =//auth.mercadolibre.com/authorization';
 /** *  @default */
-const oauthUrl = process.env.OAUTH_URL || 'https =//api.mercadolibre.com/oauth/token';
+const oauthUrl = process.env.ML_OAUTH_URL || 'https =//api.mercadolibre.com/oauth/token';
 
 
 export default class Meli {
